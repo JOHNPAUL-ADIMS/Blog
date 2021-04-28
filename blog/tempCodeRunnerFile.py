@@ -1,2 +1,2 @@
 ontains(response, 'A good title')
-    self.assertT
+self.assertT
