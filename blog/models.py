@@ -15,7 +15,11 @@ class Post(models.Model):
 
 class Comment(models.Model):  # new
 
-    article = models.ForeignKey(Post, on_delete=models.CASCADE)
+    article = models.ForeignKey(
+        Post, 
+        on_delete=models.CASCADE, 
+        related_name='comments',
+    )
     comment = models.CharField(max_length=140)
     author = models.ForeignKey('auth.user', on_delete=models.CASCADE)
     

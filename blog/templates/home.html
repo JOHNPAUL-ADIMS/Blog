@@ -5,8 +5,11 @@
 
 {% block content %}
     {% if user.is_authenticated %}
-        Dear {{ user.username }}!
-        <p><a href="{% url 'logout' %}">Log Out</a></p>
+        <div >
+            Welcome {{ user.username }}!
+        </div>
+        
+        <!-- <p><a href="{% url 'logout' %}">Log Out</a></p> -->
         
         {% for post in object_list %}
         <div class="post-entry">

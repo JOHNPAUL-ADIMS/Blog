@@ -5,5 +5,22 @@ from .models import Comment
 
 
 # Register your models here.
-admin.site.register(Post)
+
+class CommentInline(admin.TabularInline):  # new
+    model = Comment
+   
+class PostAdmin(admin.ModelAdmin):  # new
+    inlines = [
+    CommentInline,
+]
+
+
+
+
+
+
+
+admin.site.register(Post, PostAdmin)
 admin.site.register(Comment)  
+
+
