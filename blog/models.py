@@ -25,6 +25,7 @@ class Comment(models.Model):  # new
     
 
     
+    
     def __str__(self):
         return self.comment
     
