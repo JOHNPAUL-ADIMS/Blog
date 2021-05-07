@@ -10,8 +10,10 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+
 from pathlib import Path
 import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +28,7 @@ SECRET_KEY = 'django-insecure-nsb*_d2ol@v=+xc(-2k1dqyobvn813&f91y_@hhdgc)fxmg@8@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['jp-firstone.herokuapp.com',
+ALLOWED_HOSTS = ['https://jp-firstone.herokuapp.com/',
                  'localhost', '127.0.0.1']
 
 
@@ -138,6 +140,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
-
 
