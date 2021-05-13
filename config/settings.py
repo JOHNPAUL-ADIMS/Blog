@@ -13,7 +13,14 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import environ
 
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,17 +30,18 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-<<<<<<< Updated upstream
+
 SECRET_KEY = 'django-insecure-nsb*_d2ol@v=+xc(-2k1dqyobvn813&f91y_@hhdgc)fxmg@8@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-=======
+
 SECRET_KEY = 'django-insecure-nsb*_d2ol@v = +xc(-2k1dqyobvn813 & f91y_@hhdgc)fxmg@8@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG", default=False)
->>>>>>> Stashed changes
+
+
+
 
 ALLOWED_HOSTS = ['jp-firstone.herokuapp.com',
                  'localhost', '127.0.0.1']
@@ -136,14 +144,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< Updated upstream
-STATICFILES_DIRS = [str(BASE_DIR.joinpath('static'))]
-STATIC_ROOT = os.path(BASE_DIR.joinpath('staticfiles'))  # new
-=======
-STATICFILES_DIRS = [str(BASE_DIR.joinpath('blog/static'))]  # new
-STATIC_ROOT = str(BASE_DIR.joinpath('staticfiles'))  # new
->>>>>>> Stashed changes
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # new
+STATIC_ROOT = os.path.join(BASE_DIR, 'blog/staticfiles')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
